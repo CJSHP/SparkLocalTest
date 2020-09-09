@@ -1,17 +1,17 @@
-package com.quinceyliu;
+package com.quinceyliu.demo;
 
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.api.java.function.FlatMapFunction;
 import org.apache.spark.api.java.function.PairFunction;
 import scala.Tuple2;
-
 import java.util.Arrays;
 import java.util.List;
 
-public class Main {
+public class WordCount {
+
     public static void main(String[] args) {
-        SparkConf sparkConf = new SparkConf().setAppName("count").setMaster("local");
+        SparkConf sparkConf = new SparkConf().setAppName("word count").setMaster("local");
         JavaSparkContext sc = new JavaSparkContext(sparkConf);
         List<String> data = Arrays.asList("Google Bye GoodBye Hadoop code", "Java code Bye");
         sc.parallelize(data)
