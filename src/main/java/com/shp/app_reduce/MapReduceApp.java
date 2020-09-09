@@ -1,4 +1,4 @@
-package com.quinceyliu;
+package com.shp.app_reduce;
 
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaSparkContext;

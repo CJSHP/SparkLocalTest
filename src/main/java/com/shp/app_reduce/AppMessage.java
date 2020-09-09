@@ -1,4 +1,4 @@
-package com.quinceyliu;
+package com.shp.app_reduce;
 
 import lombok.Getter;
 import lombok.Setter;
