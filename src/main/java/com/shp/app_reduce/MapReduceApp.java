@@ -42,28 +42,43 @@ public class MapReduceApp {
                             current = b.get(rightBegin++);
                         }
                         if (end < current.first) {
-                            list.add(new Pair(begin, end));
+                            Pair p = Pair.getPair();
+                            p.first = begin;
+                            p.second = end;
+                            list.add(p);
                             begin = current.first;
                         }
                         end = current.second;
+                        Pair.pushPair(current);
                     }
                     while (leftBegin < a.size()) {
                         Pair current = a.get(leftBegin++);
                         if (end < current.first) {
-                            list.add(new Pair(begin, end));
+                            Pair p = Pair.getPair();
+                            p.first = begin;
+                            p.second = end;
+                            list.add(p);
                             begin = current.first;
                         }
                         end = current.second;
+                        Pair.pushPair(current);
                     }
                     while (rightBegin < b.size()) {
                         Pair current = b.get(rightBegin++);
                         if (end < current.first) {
-                            list.add(new Pair(begin, end));
+                            Pair p = Pair.getPair();
+                            p.first = begin;
+                            p.second = end;
+                            list.add(p);
                             begin = current.first;
                         }
                         end = current.second;
+                        Pair.pushPair(current);
                     }
-                    list.add(new Pair(begin, end));
+                    Pair p = Pair.getPair();
+                    p.first = begin;
+                    p.second = end;
+                    list.add(p);
                     return list;
                 })
                 .foreach(p -> System.out.println(p._1 + ", " + p._2));

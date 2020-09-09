@@ -1,11 +1,14 @@
 package com.shp.app_reduce;
 
 import java.io.Serializable;
+import java.util.LinkedList;
 
 public class Pair implements Comparable<Pair>, Serializable {
 
     protected int first;
     protected int second;
+
+    private static final LinkedList<Pair> pairs = new LinkedList<>();
 
     private Pair() {
     }
@@ -18,6 +21,17 @@ public class Pair implements Comparable<Pair>, Serializable {
         }
         this.first = first;
         this.second = second;
+    }
+
+    public static Pair getPair() {
+        if (pairs.isEmpty()) {
+            return new Pair(0, 0);
+        }
+        return pairs.removeLast();
+    }
+
+    public static void pushPair(Pair p) {
+        pairs.addLast(p);
     }
 
     @Override
