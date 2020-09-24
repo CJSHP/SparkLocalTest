@@ -34,15 +34,15 @@ public class MapReduceApp {
                     }
                     List<Pair> list = new ArrayList<>();
                     int leftBegin = 1, rightBegin = 0, begin = a.get(0).first, end = a.get(0).second;
+                    Pair p, current;
                     while (leftBegin < a.size() && rightBegin < b.size()) {
-                        Pair current;
                         if (a.get(leftBegin).compareTo(b.get(rightBegin)) <= 0) {
                             current = a.get(leftBegin++);
                         } else {
                             current = b.get(rightBegin++);
                         }
                         if (end < current.first) {
-                            Pair p = Pair.getPair();
+                            p = Pair.getPair();
                             p.first = begin;
                             p.second = end;
                             list.add(p);
@@ -52,9 +52,9 @@ public class MapReduceApp {
                         Pair.pushPair(current);
                     }
                     while (leftBegin < a.size()) {
-                        Pair current = a.get(leftBegin++);
+                        current = a.get(leftBegin++);
                         if (end < current.first) {
-                            Pair p = Pair.getPair();
+                            p = Pair.getPair();
                             p.first = begin;
                             p.second = end;
                             list.add(p);
@@ -64,9 +64,9 @@ public class MapReduceApp {
                         Pair.pushPair(current);
                     }
                     while (rightBegin < b.size()) {
-                        Pair current = b.get(rightBegin++);
+                        current = b.get(rightBegin++);
                         if (end < current.first) {
-                            Pair p = Pair.getPair();
+                            p = Pair.getPair();
                             p.first = begin;
                             p.second = end;
                             list.add(p);
@@ -75,7 +75,7 @@ public class MapReduceApp {
                         end = current.second;
                         Pair.pushPair(current);
                     }
-                    Pair p = Pair.getPair();
+                    p = Pair.getPair();
                     p.first = begin;
                     p.second = end;
                     list.add(p);
