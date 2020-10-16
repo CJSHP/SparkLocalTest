@@ -82,5 +82,8 @@ public class MapReduceApp {
                     return list;
                 })
                 .foreach(p -> System.out.println(p._1 + ", " + p._2));
+        if (sc != null) {
+            sc.close();
+        }
     }
 }
