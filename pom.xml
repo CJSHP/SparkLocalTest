@@ -50,9 +50,9 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>2.3.2</version>
                 <configuration>
-                    <source>14</source>
-                    <target>14</target>
-                    <compilerVersion>14.0</compilerVersion>
+                    <source>11</source>
+                    <target>11</target>
+                    <compilerVersion>11.0</compilerVersion>
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>

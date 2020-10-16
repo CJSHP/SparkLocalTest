@@ -3,15 +3,16 @@ package com.shp.app_reduce;
 import java.io.Serializable;
 import java.util.LinkedList;
 
+@SuppressWarnings("unused")
 public class Pair implements Comparable<Pair>, Serializable {
 
+    private static final long serialVersionUID = 1166402657119922731L;
     protected int first;
     protected int second;
 
     private static final LinkedList<Pair> pairs = new LinkedList<>();
 
-    private Pair() {
-    }
+    private Pair() {}
 
     public Pair(int first, int second) {
         if (first > second) {

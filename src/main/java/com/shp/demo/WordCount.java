@@ -20,5 +20,10 @@ public class WordCount {
                 .mapToPair((PairFunction<String, String, Integer>) s -> new Tuple2<>(s, 1))
                 .reduceByKey(Integer::sum)
                 .foreach(p -> System.out.println(p._1 + ", " + p._2));
+        try {
+            sc.close();
+        } catch (NullPointerException ignored) {
+            
+        }
     }
 }
