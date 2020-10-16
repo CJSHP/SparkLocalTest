@@ -8,7 +8,6 @@ import java.io.Serializable;
 @Getter
 @Setter
 @ToString
-@SuppressWarnings("unused")
 public class AppMessage implements Serializable {
 
     private static final long serialVersionUID = 6436230034089409034L;
