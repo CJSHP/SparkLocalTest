@@ -3,6 +3,7 @@ package com.shp.app_reduce;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+
 import java.io.Serializable;
 
 @Getter
