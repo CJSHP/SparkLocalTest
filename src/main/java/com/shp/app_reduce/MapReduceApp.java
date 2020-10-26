@@ -4,6 +4,7 @@ import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.api.java.function.PairFunction;
 import scala.Tuple2;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -82,8 +83,6 @@ public class MapReduceApp {
                     return list;
                 })
                 .foreach(p -> System.out.println(p._1 + ", " + p._2));
-        if (sc != null) {
-            sc.close();
-        }
+        sc.close();
     }
 }

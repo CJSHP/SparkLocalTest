@@ -1,5 +1,6 @@
 package com.shp.app_reduce;
 
+import javax.annotation.Nonnull;
 import java.io.Serializable;
 import java.util.LinkedList;
 
@@ -36,11 +37,22 @@ public class Pair implements Comparable<Pair>, Serializable {
     }
 
     @Override
-    public int compareTo(Pair p) {
-        int order = 1;
-        if (p == null) {
-            return -1 * order;
+    public int hashCode() {
+        return (this.first << 8) ^ this.first ^ (this.second << 4) ^ this.second;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Pair)) {
+            return false;
         }
+        Pair p = (Pair) o;
+        return this.first == p.first && this.second == p.second;
+    }
+
+    @Override
+    public int compareTo(@Nonnull Pair p) {
+        int order = 1;
         if (first == p.first) {
             if (second == p.second) {
                 return 0;
