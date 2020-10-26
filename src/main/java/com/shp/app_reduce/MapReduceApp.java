@@ -13,17 +13,15 @@ import java.util.List;
 public class MapReduceApp {
 
     public static void main(String[] args) {
-        SparkConf sparkConf = new SparkConf().setAppName("map reduce app").setMaster("local");
-        JavaSparkContext sc = new JavaSparkContext(sparkConf);
-        List<AppMessage> data = Arrays.asList(
+        JavaSparkContext sc = new JavaSparkContext(new SparkConf().setAppName("map reduce app").setMaster("local"));
+        sc.parallelize(Arrays.asList(
                 new AppMessage("app1", 1, 3),
                 new AppMessage("app2", 2, 4),
                 new AppMessage("app1", 3, 5),
                 new AppMessage("app2", 3, 5),
                 new AppMessage("app1", 10, 12),
                 new AppMessage("app2", 15, 17)
-        );
-        sc.parallelize(data)
+        ))
                 .mapToPair((PairFunction<AppMessage, String, List<Pair>>) s ->
                         new Tuple2<>(s.getAppName(),
                                 Collections.singletonList(new Pair(s.getStartTime(), s.getEndTime()))))
